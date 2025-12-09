@@ -1,0 +1,693 @@
+@ c = 0.1
+{
+  "engine_failure_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.9,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.6,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "SVC": {
+      "accuracy": 0.9,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "brake_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.5,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "SVC": {
+      "accuracy": 0.5,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "battery_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LightGBM": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.8,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "SVC": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  }
+}
+@ c = 0.5
+{
+  "engine_failure_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LogisticRegression": {
+      "accuracy": 0.8181818181818182,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "SVC": {
+      "accuracy": 0.8181818181818182,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "brake_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LogisticRegression": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "SVC": {
+      "accuracy": 0.5454545454545454,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "battery_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LogisticRegression": {
+      "accuracy": 0.9090909090909091,
+      "precision": 1,
+      "recall": 0.5,
+      "f1_score": 0.6666666666666666
+    },
+    "SVC": {
+      "accuracy": 0.8181818181818182,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  }
+}
+@ c = 0.25
+{
+  "engine_failure_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 0.8888888888888888,
+      "precision": 0.5,
+      "recall": 1,
+      "f1_score": 0.6666666666666666
+    },
+    "LightGBM": {
+      "accuracy": 0.8888888888888888,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.5555555555555556,
+      "precision": 0.2,
+      "recall": 1,
+      "f1_score": 0.3333333333333333
+    },
+    "SVC": {
+      "accuracy": 0.8888888888888888,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "brake_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.6666666666666666,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "SVC": {
+      "accuracy": 0.6666666666666666,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "battery_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.7777777777777778,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.7777777777777778,
+      "precision": 0.5,
+      "recall": 1,
+      "f1_score": 0.6666666666666666
+    },
+    "SVC": {
+      "accuracy": 0.7777777777777778,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  }
+}
+@ c = 0.33
+{
+  "engine_failure_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.9,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.6,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "SVC": {
+      "accuracy": 0.9,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "brake_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.5,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "SVC": {
+      "accuracy": 0.5,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "battery_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LightGBM": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.8,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "SVC": {
+      "accuracy": 1,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  }
+}
+@ c = 0.2
+{
+  "engine_failure_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.8888888888888888,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.6666666666666666,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "SVC": {
+      "accuracy": 0.8888888888888888,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "brake_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.7777777777777778,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "SVC": {
+      "accuracy": 0.7777777777777778,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  },
+  "battery_issue_imminent": {
+    "RandomForest": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "XGBoost": {
+      "accuracy": 1,
+      "precision": 1,
+      "recall": 1,
+      "f1_score": 1
+    },
+    "LightGBM": {
+      "accuracy": 0.6666666666666666,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    },
+    "LogisticRegression": {
+      "accuracy": 0.6666666666666666,
+      "precision": 0.5,
+      "recall": 0.6666666666666666,
+      "f1_score": 0.5714285714285714
+    },
+    "SVC": {
+      "accuracy": 0.6666666666666666,
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0
+    }
+  }
+}
+@ c = 2
+{
+    "engine_failure_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 0.9523809523809523,
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1_score": 0.6666666666666666
+        },
+        "LightGBM": {
+            "accuracy": 0.9523809523809523,
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1_score": 0.6666666666666666
+        },
+        "LogisticRegression": {
+            "accuracy": 0.9047619047619048,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "SVC": {
+            "accuracy": 0.9523809523809523,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "brake_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "SVC": {
+            "accuracy": 0.9047619047619048,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "battery_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.8571428571428571,
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1_score": 0.5714285714285714
+        },
+        "SVC": {
+            "accuracy": 0.8571428571428571,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    }
+}
+@ c = 2.3
+{
+    "engine_failure_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 0.9565217391304348,
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1_score": 0.8
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.8260869565217391,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "SVC": {
+            "accuracy": 0.9130434782608695,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "brake_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 0.9130434782608695,
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "f1_score": 0.8333333333333334
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "SVC": {
+            "accuracy": 0.6956521739130435,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "battery_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "XGBoost": {
+            "accuracy": 0.9565217391304348,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.9565217391304348,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "SVC": {
+            "accuracy": 1.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    }
+}

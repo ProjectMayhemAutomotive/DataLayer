@@ -1,17 +1,21 @@
 import os
+import sys
 import pickle
 import json
 from typing import Dict, Any
 from dotenv import load_dotenv
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 import logging
+import asyncio
 
 # Load environment variables
 load_dotenv()
 
-# ============ CONSTANTS ============
+# Add notebook path to Python path so we can import from it
+from models.v1.ModelTrainer import ModelTrainer
+
 CURRENT_VERSION = 'v1'
-MODEL_PATH = f'models/{CURRENT_VERSION}/bin/dev.pkl'
+MODEL_PATH = f'D:\\EY Hackathon\\Data Layer\\models\\{CURRENT_VERSION}\\bin\\{CURRENT_VERSION}.pkl'
 ENV_TOKEN = os.getenv('MASTER_AGENT_TOKEN', '')
 CLASSIFICATION_TARGETS = [
     'engine_failure_imminent',
@@ -23,41 +27,23 @@ REGRESSION_TARGETS = [
     'failure_month',
     'failure_day'
 ]
-ALL_TARGETS = CLASSIFICATION_TARGETS + REGRESSION_TARGETS
+ALL_TARGETS = CLASSIFICATION_TARGETS # + REGRESSION_TARGETS
 
-# ============ LOGGER ============
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# ============ GLOBAL MODEL INSTANCE ============
-model_trainer = None
 
-def initialize_model():
-    """Initialize model trainer from pickle file - called once at startup"""
+def initialize_model():    
     global model_trainer
     try:
-        if os.path.exists(MODEL_PATH):
-            with open(MODEL_PATH, 'rb') as f:
-                model_trainer = pickle.load(f)
-            logger.info(f"Model loaded successfully from {MODEL_PATH}")
-        else:
-            logger.warning(f"Model file not found at {MODEL_PATH}")
-            model_trainer = None
+        with open(MODEL_PATH, 'rb') as f:
+            model_trainer = pickle.load(f)
+        logger.info("Model loaded successfully.")
     except Exception as e:
         logger.error(f"Failed to load model: {str(e)}")
         model_trainer = None
 
-# ============ FASTMCP APP ============
-mcp = FastMCP("malfunction-predictor")
-
-# Initialize model on startup
-@mcp.on_startup
-async def startup():
-    """Initialize model when server starts"""
-    initialize_model()
-    logger.info(f"MCP Server started - Model version: {CURRENT_VERSION}")
-
-# ============ MCP TOOLS ============
+mcp = FastMCP("malfunction-predictor", host="localhost", port=8000)
 
 @mcp.tool()
 def predict_engine_failure(vehicle_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -196,7 +182,10 @@ def predict_all_malfunctions(vehicle_data: Dict[str, Any]) -> Dict[str, Any]:
         'overall_status': 'success' if all(r['status'] == 'success' for r in results.values()) else 'partial'
     }
 
-# ============ MAIN ============
+# app = mcp.streamable_http_app()
+async def startServer():
+    await mcp.run_sse_async()
 if __name__ == "__main__":
+    # Initialize model before creating MCP server
     initialize_model()
-    mcp.run()
+    mcp.run(transport="streamable-http")
