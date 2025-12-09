@@ -196,6 +196,171 @@
     }
   }
 }
+@ c = 0.8
+{
+    "engine_failure_imminent": {
+        "RandomForest": {
+            "accuracy": 0.8421052631578947,
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1_score": 0.4
+        },
+        "XGBoost": {
+            "accuracy": 0.7894736842105263,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.8947368421052632,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1_score": 0.6666666666666666
+        },
+        "SVC": {
+            "accuracy": 0.7894736842105263,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "brake_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 0.9473684210526315,
+            "precision": 0.8571428571428571,
+            "recall": 1.0,
+            "f1_score": 0.9230769230769231
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "SVC": {
+            "accuracy": 0.6842105263157895,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "battery_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 0.8947368421052632,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1_score": 0.75
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 0.8947368421052632,
+            "precision": 1.0,
+            "recall": 0.6,
+            "f1_score": 0.75
+        },
+        "LogisticRegression": {
+            "accuracy": 0.8421052631578947,
+            "precision": 0.75,
+            "recall": 0.6,
+            "f1_score": 0.6666666666666666
+        },
+        "SVC": {
+            "accuracy": 0.7368421052631579,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "failure_year": {
+        "RandomForest": {
+            "MSE": 79.00057894736828,
+            "MAE": 8.043157894736828,
+            "R_Squared": 0.3479833333333344
+        },
+        "XGBoost": {
+            "MSE": 11.257167400498139,
+            "MAE": 2.0133891858552633,
+            "R_Squared": 0.9070910811424255
+        },
+        "LightGBM": {
+            "MSE": 263.5470639152889,
+            "MAE": 14.31870182748315,
+            "R_Squared": -1.1751369472661017
+        },
+        "LinearRegression": {
+            "MSE": 6497.203724456925,
+            "MAE": 58.2664355632281,
+            "R_Squared": -52.62346923934499
+        }
+    },
+    "failure_month": {
+        "RandomForest": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        },
+        "XGBoost": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        },
+        "LightGBM": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        },
+        "LinearRegression": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        }
+    },
+    "failure_day": {
+        "RandomForest": {
+            "MSE": 4.072263157894736,
+            "MAE": 1.728421052631579,
+            "R_Squared": 0.09699815724815708
+        },
+        "XGBoost": {
+            "MSE": 3.995501465245918,
+            "MAE": 1.4992659217432927,
+            "R_Squared": 0.11401945352554321
+        },
+        "LightGBM": {
+            "MSE": 7.512596629697374,
+            "MAE": 2.2723724972247354,
+            "R_Squared": -0.6658767710815434
+        },
+        "LinearRegression": {
+            "MSE": 307.9250291318318,
+            "MAE": 12.800139203484441,
+            "R_Squared": -67.28067292173914
+        }
+    }
+}
 @ c = 0.25
 {
   "engine_failure_imminent": {
@@ -688,6 +853,345 @@
             "precision": 0.0,
             "recall": 0.0,
             "f1_score": 0.0
+        }
+    }
+}
+@ c = 2.5
+{
+    "engine_failure_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.9459459459459459,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "SVC": {
+            "accuracy": 0.9459459459459459,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "brake_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.972972972972973,
+            "precision": 1.0,
+            "recall": 0.8571428571428571,
+            "f1_score": 0.9230769230769231
+        },
+        "SVC": {
+            "accuracy": 0.8108108108108109,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "battery_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.9459459459459459,
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1_score": 0.75
+        },
+        "SVC": {
+            "accuracy": 0.918918918918919,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "failure_year": {
+        "RandomForest": {
+            "MSE": 7.305762162162131,
+            "MAE": 1.5616216216216023,
+            "R_Squared": 0.9542680000000002,
+            "oob_score": 0
+        },
+        "XGBoost": {
+            "MSE": 0.05244962307246956,
+            "MAE": 0.037871489653716214,
+            "R_Squared": 0.9996716976165771,
+            "oob_score": 0
+        },
+        "LightGBM": {
+            "MSE": 90.9631907939583,
+            "MAE": 8.430838854713876,
+            "R_Squared": 0.4305962130913171,
+            "oob_score": 0
+        },
+        "LinearRegression": {
+            "MSE": 65.89938325584797,
+            "MAE": 6.20110767574279,
+            "R_Squared": 0.5874885428566261
+        }
+    },
+    "failure_month": {
+        "RandomForest": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0,
+            "oob_score": 0
+        },
+        "XGBoost": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0,
+            "oob_score": 0
+        },
+        "LightGBM": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0,
+            "oob_score": 0
+        },
+        "LinearRegression": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        }
+    },
+    "failure_day": {
+        "RandomForest": {
+            "MSE": 0.9829027027027024,
+            "MAE": 0.5745945945945947,
+            "R_Squared": 0.6830914272256243,
+            "oob_score": 0
+        },
+        "XGBoost": {
+            "MSE": 1.1369811508926584,
+            "MAE": 0.4888649405659856,
+            "R_Squared": 0.6334133148193359,
+            "oob_score": 0
+        },
+        "LightGBM": {
+            "MSE": 2.2741875594273453,
+            "MAE": 1.191926728624707,
+            "R_Squared": 0.26675394044841383,
+            "oob_score": 0
+        },
+        "LinearRegression": {
+            "MSE": 2.622450320892498,
+            "MAE": 1.1992823086551632,
+            "R_Squared": 0.15446667703678063
+        }
+    }
+}
+@ c = 3
+{
+    "engine_failure_imminent": {
+        "RandomForest": {
+            "accuracy": 0.9523809523809523,
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1_score": 0.5
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 0.9523809523809523,
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1_score": 0.5
+        },
+        "LogisticRegression": {
+            "accuracy": 0.8333333333333334,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        },
+        "SVC": {
+            "accuracy": 0.9285714285714286,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "brake_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "SVC": {
+            "accuracy": 0.9047619047619048,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "battery_issue_imminent": {
+        "RandomForest": {
+            "accuracy": 0.9285714285714286,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1_score": 0.6666666666666666
+        },
+        "XGBoost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LightGBM": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "LogisticRegression": {
+            "accuracy": 0.8809523809523809,
+            "precision": 1.0,
+            "recall": 0.16666666666666666,
+            "f1_score": 0.2857142857142857
+        },
+        "SVC": {
+            "accuracy": 0.8571428571428571,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1_score": 0.0
+        }
+    },
+    "failure_year": {
+        "RandomForest": {
+            "MSE": 8.48417142857139,
+            "MAE": 1.2214285714285542,
+            "R_Squared": 0.9455448275862072
+        },
+        "XGBoost": {
+            "MSE": 50.10712236378874,
+            "MAE": 1.8920782180059523,
+            "R_Squared": 0.6783902645111084
+        },
+        "LightGBM": {
+            "MSE": 158.66123430947252,
+            "MAE": 9.55506418198033,
+            "R_Squared": -0.01835812046555385
+        },
+        "LinearRegression": {
+            "MSE": 71.28097779231523,
+            "MAE": 6.602889743074262,
+            "R_Squared": 0.5424870927958285
+        }
+    },
+    "failure_month": {
+        "RandomForest": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        },
+        "XGBoost": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        },
+        "LightGBM": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        },
+        "LinearRegression": {
+            "MSE": 0.0,
+            "MAE": 0.0,
+            "R_Squared": 1.0
+        }
+    },
+    "failure_day": {
+        "RandomForest": {
+            "MSE": 0.9299642857142858,
+            "MAE": 0.49833333333333335,
+            "R_Squared": 0.7062744852282901
+        },
+        "XGBoost": {
+            "MSE": 1.9158532913909536,
+            "MAE": 0.6062155408518655,
+            "R_Squared": 0.3948853015899658
+        },
+        "LightGBM": {
+            "MSE": 3.146010447601265,
+            "MAE": 1.3030459886398003,
+            "R_Squared": 0.006345133470254116
+        },
+        "LinearRegression": {
+            "MSE": 2.3307997623345136,
+            "MAE": 1.1638684582708805,
+            "R_Squared": 0.26382618070580444
         }
     }
 }

@@ -11,7 +11,7 @@ import asyncio
 # Load environment variables
 load_dotenv()
 
-# Add notebook path to Python path so we can import from it
+# Importing ModelTrainer from models.v1
 from models.v1.ModelTrainer import ModelTrainer
 
 CURRENT_VERSION = 'v1'
@@ -27,7 +27,7 @@ REGRESSION_TARGETS = [
     'failure_month',
     'failure_day'
 ]
-ALL_TARGETS = CLASSIFICATION_TARGETS # + REGRESSION_TARGETS
+ALL_TARGETS = CLASSIFICATION_TARGETS + REGRESSION_TARGETS
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -182,9 +182,9 @@ def predict_all_malfunctions(vehicle_data: Dict[str, Any]) -> Dict[str, Any]:
         'overall_status': 'success' if all(r['status'] == 'success' for r in results.values()) else 'partial'
     }
 
-# app = mcp.streamable_http_app()
-async def startServer():
+
     await mcp.run_sse_async()
+
 if __name__ == "__main__":
     # Initialize model before creating MCP server
     initialize_model()
