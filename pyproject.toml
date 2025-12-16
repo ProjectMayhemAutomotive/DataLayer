@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi>=0.124.0",
     "fastmcp>=2.13.3",
+    "imbalanced-learn>=0.14.0",
     "lightgbm",
     "matplotlib",
     "mcp>=1.22.0",

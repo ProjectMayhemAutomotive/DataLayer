@@ -182,9 +182,6 @@ def predict_all_malfunctions(vehicle_data: Dict[str, Any]) -> Dict[str, Any]:
         'overall_status': 'success' if all(r['status'] == 'success' for r in results.values()) else 'partial'
     }
 
-
-    await mcp.run_sse_async()
-
 if __name__ == "__main__":
     # Initialize model before creating MCP server
     initialize_model()
