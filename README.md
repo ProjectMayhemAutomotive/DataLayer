@@ -6,10 +6,28 @@ Conceptually it is divided into two modules - _Individual_ and _Batch_.
 _Individual Module_ gives quick diagnoses of problems taking senor information and unstructured data for customers' on-the-spot problems. _Batch Module_ uses deep learning to analyze more complex relationships among data.
 
 ## Contents
+- [Individual Module](#individual-module)
+   - [Methodology](#methodology)
+   - [Tentative Results](#tentative-results)
+- [Batch Module](#batch-module)
+- [Current Progess And More To Come](#current-progess-and-more-to-come)
+    - [Individual Module](#individual-module-1)
+        - [Current Abilities](#current-abilities)
+        - [Concerns](#concerns)
+        - [Improvements](#improvements)
+    - [Batch Module](#batch-module-1)
+        - [Current Abilities](#current-abilities-1)
+        - [Concerns](#concerns-1)
+        - [Improvements](#improvements-1)
+- [Future Work](#future-work)
+
+## Current Progess And More To Come
+### Individual Module
+#### Current Abilities
 
 ## Individual Module
 <img src="./images/mcp_example.png" alt="Image of MCP Server Serving Tools">
-server.py - exposes the **Data Diagnosis Agent** that exposes multiple models and endpoints for the **Customer Support Agent** to call through MCP endpoints. As it matures it will provide layers of security and allow AI agents to access its tools.  
+ server.py - exposes the <b>Data Diagnosis Agent</b> that exposes multiple models and endpoints for the <b>Customer Support Agent</b> to call through MCP endpoints. As it matures it will provide layers of security and allow AI agents to access its tools.  
 
 Dataset: [Vehicle Maintenance Telemetry Data](https://kaggle.com/datasets/tejalaveti2306/vehicle-maintenance-telemetry-data)
 
@@ -46,7 +64,7 @@ The model is a powerful Graph Attention Transformer (GAT) optimized for spacial-
 </table>
 Model Architecture Diagram:
 <img src="./images/TemporalGraphHealthNet.png">
-(More description of the model can be found [here](./batch/README.md))
+(More description of the model can be found <a href="https://github.com/ProjectMayhemAutomotive/DataLayer/blob/main/batch/README.md">here (the report is too interesting to ignore btw)</a>)
 
 ## Current Progess and More to Come
 #### Individual Module
