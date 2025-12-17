@@ -213,7 +213,7 @@ The challenge is that sensor relationships exhibit structure that can inform the
 <td>
 <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/0*A6VqbqgA1ilYVvkt.png">Transformer Architecture
 </td></tr><tr>
-<td><img src="https://www.researchgate.net/profile/Alberto-Cano-2/publication/355916352/figure/fig1/AS:1086496828334080@1636052438065/Temporal-Fusion-Transformer-architecture-4.ppm">
+<td><img src="../images/Temporal-Fusion-Transformer-architecture-4.png">
 Temporal Fusion Transformers</td></tr>
 </table>
 
