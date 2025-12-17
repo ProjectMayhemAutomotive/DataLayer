@@ -37,11 +37,19 @@ We use an ensamble of multiple popular models for regression and classification 
 - For <u>classification</u> of columns (engine_failure_imminent, brake_issue_imminent, battery_issue_imminent) we train Logistic Regression, Random Forest Classifier, LightGBM Classifier, XGBoost Classifier and Support Vector  Classifier.
 
 ### Tentative Results
-After experimentation, we found that the best performing model for each task is:
-- **RandomForest** (for year and day only) and **XGBoost** (for month prediction only) for __failure_date__.
-- **RandomForest** for __engine_failure_imminent__
-- **XGBoost Classifier** for __brake_issue_imminent__
-- **RandomForest Classifier** for __battery_issue_imminent__
+After experimentation, we found that the *entire training took 35.9s*, quite . the best performing model for each task is:
+
+<table>
+    <tr><td><img src="./images/bii.png"></td><td><img src="./images/btii.png"></td></tr>
+    <tr><td><img src="./images/efi.png"></td><td><img src="./images/fd.png"></td></tr>
+</table>
+
+- **XGBoost** for __failure_date__.
+- **LightGBM** for __engine_failure_imminent__
+- **LogisticRegression Classifier** for __brake_issue_imminent__
+- **Xgboost Classifier** for __battery_issue_imminent__  
+
+These models were selected for their impressive performance while not being overly-fit.
 
 ## Batch Module
  

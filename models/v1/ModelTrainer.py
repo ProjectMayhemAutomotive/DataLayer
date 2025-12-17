@@ -14,113 +14,150 @@ from sklearn.svm import SVC
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os.path as path
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+RESULT_LOG_PATH = r"D:\EY Hackathon\Data Layer\models\v1\results.log"
 # Model Class
 class ModelTrainer:
-    def setBestModelIndex(self, bestModelIndex: dict):
-        self.bestModelIndex = bestModelIndex
-    def train_model(self, train_data, target: dict):
-        all_extra_cols = target['classification_type']+target['regression_type']
-        features = train_data.drop(columns=all_extra_cols)
-        classificationLabels = train_data[target['classification_type']]
-
-        # Iterate through each target and train a separate model
+    def __init__(self):
         self.models = {}
-        for t in target['classification_type']:
-            # Use RandomForestClassifier, XGBoost, LightGBM, LogisticRegression for training
-            from sklearn.ensemble import RandomForestClassifier
-            rfModel = RandomForestClassifier(n_estimators=100, random_state=42)
-            xgbModel = xgb.XGBClassifier()
-            lightGBMModel = lgb.LGBMClassifier()
-            lrModel = LogisticRegression()
-            svcModel = SVC()
-            # Train the models
-            rfModel.fit(features, classificationLabels[t])
-            xgbModel.fit(features, classificationLabels[t])
-            lightGBMModel.fit(features, classificationLabels[t])
-            lrModel.fit(features, classificationLabels[t])
-            svcModel.fit(features, classificationLabels[t])
-            self.models[t] = [rfModel, xgbModel, lightGBMModel, lrModel, svcModel]
-        return self.models
-    def evaluate_model(self, test_data, target: list[str], dump_results=False, c: float=2):
-        features = test_data.drop(columns=target+['failure_year', 'failure_month', 'failure_day'])
-        labels = test_data[target]
+        self.best_model_index = {}
 
-        evaluation_results = {}
-        for t in target:
-            rfModel, xgbModel, lightGBMModel, lrModel, svcModel = self.models[t]
-            predictions1 = rfModel.predict(features)
-            predictions2 = xgbModel.predict(features)
-            predictions3 = lightGBMModel.predict(features)
-            predictions4 = lrModel.predict(features)
-            predictions5 = svcModel.predict(features)
+    def set_best_model_index(self, best_model_index: dict):
+        self.best_model_index = best_model_index
 
-            evaluation_results[t] = {
-                "RandomForest": {
-                    "accuracy": accuracy_score(labels[t], predictions1),
-                    "precision": precision_score(labels[t], predictions1),
-                    "recall": recall_score(labels[t], predictions1),
-                    "f1_score": f1_score(labels[t], predictions1)
-                },
-                "XGBoost": {
-                    "accuracy": accuracy_score(labels[t], predictions2),
-                    "precision": precision_score(labels[t], predictions2),
-                    "recall": recall_score(labels[t], predictions2),
-                    "f1_score": f1_score(labels[t], predictions2)
-                },
-                "LightGBM": {
-                    "accuracy": accuracy_score(labels[t], predictions3),
-                    "precision": precision_score(labels[t], predictions3),
-                    "recall": recall_score(labels[t], predictions3),
-                    "f1_score": f1_score(labels[t], predictions3)
-                },
-                "LogisticRegression": {
-                    "accuracy": accuracy_score(labels[t], predictions4),
-                    "precision": precision_score(labels[t], predictions4),
-                    "recall": recall_score(labels[t], predictions4),
-                    "f1_score": f1_score(labels[t], predictions4)
-                },
-                "SVC": {
-                    "accuracy": accuracy_score(labels[t], predictions5),
-                    "precision": precision_score(labels[t], predictions5),
-                    "recall": recall_score(labels[t], predictions5),
-                    "f1_score": f1_score(labels[t], predictions5)
+    def train_model(self, train_data, target: dict):
+        all_targets = target['classification_type'] + target['regression_type']
+        X = train_data.drop(columns=all_targets)
+
+        # classification
+        for target_col in target['classification_type']:
+            y = train_data[target_col]
+
+            models = [
+                RandomForestClassifier(n_estimators=100, random_state=42),
+                xgb.XGBClassifier(verbosity=0, random_state=42),
+                lgb.LGBMClassifier(random_state=42),
+                LogisticRegression(max_iter=1000, random_state=42),
+                SVC(random_state=42)
+            ]
+
+            for model in models:
+                model.fit(X, y)
+
+            self.models[target_col] = models
+
+        # regression
+        for target_col in target['regression_type']:
+            y = train_data[target_col]
+
+            models = [
+                RandomForestRegressor(n_estimators=100, random_state=42),
+                xgb.XGBRegressor(verbosity=0, random_state=42),
+                lgb.LGBMRegressor(random_state=42),
+                LinearRegression()
+            ]
+
+            for model in models:
+                model.fit(X, y)
+
+            self.models[target_col] = models
+
+    # evaluation
+    def evaluate_model(self, test_data, target: dict, dump_results=False, c=2):
+        all_targets = target['classification_type'] + target['regression_type']
+        X = test_data.drop(columns=all_targets)
+        y_all = test_data[all_targets]
+
+        results = {}
+
+        # classification
+        clf_names = ['RandomForest', 'XGBoost', 'LightGBM', 'LogisticRegression', 'SVC']
+
+        for target_col in target['classification_type']:
+            results[target_col] = {}
+            y_true = y_all[target_col]
+
+            for model_name, model in zip(clf_names, self.models[target_col]):
+                y_pred = model.predict(X)
+
+                metrics = {
+                    'accuracy': accuracy_score(y_true, y_pred),
+                    'precision': precision_score(y_true, y_pred, zero_division=0),
+                    'recall': recall_score(y_true, y_pred, zero_division=0),
+                    'f1_score': f1_score(y_true, y_pred, zero_division=0)
                 }
-            }
 
-            # Plot Model Evaluation Results
-            for model_name, metrics in evaluation_results[t].items():
-                print(f"Model: {model_name}")
-                for metric_name, value in metrics.items():
-                    print(f"{metric_name}: {value:.4f}")
-                plt.figure(figsize=(6,4))
-                cm = confusion_matrix(labels[t],
-                                      rfModel.predict(features) if model_name == 'RandomForest' else
-                                      xgbModel.predict(features) if model_name == 'XGBoost' else
-                                      lightGBMModel.predict(features) if model_name == 'LightGBM' else
-                                      lrModel.predict(features) if model_name == 'LogisticRegression' else
-                                      svcModel.predict(features))
-                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-                plt.title(f'Confusion Matrix for {model_name} on {t}')
-                plt.xlabel('Predicted')
-                plt.ylabel('Actual')
-                plt.show()
-                sns.barplot(x=list(metrics.keys()), y=list(metrics.values()))
-                plt.title(f'Metrics for {model_name} on {t}')
-                plt.ylabel('Score')
-                plt.ylim(0, 1)
-                plt.show()
+                results[target_col][model_name] = metrics
+                self._plot_classification(y_true, y_pred, metrics, model_name, target_col)
+
+        # regression
+        reg_names = ['RandomForest', 'XGBoost', 'LightGBM', 'LinearRegression']
+
+        for target_col in target['regression_type']:
+            results[target_col] = {}
+            y_true = y_all[target_col]
+
+            for model_name, model in zip(reg_names, self.models[target_col]):
+                y_pred = model.predict(X)
+
+                metrics = {
+                    'MSE': np.mean((y_true - y_pred) ** 2),
+                    'MAE': np.mean(np.abs(y_true - y_pred)),
+                    'R_Squared': r2_score(y_true, y_pred)
+                }
+
+                results[target_col][model_name] = metrics
+                self._plot_regression(y_true, y_pred, metrics, model_name, target_col)
+
         if dump_results:
-            with open('D:\\EY Hackathon\\Data Layer\\models\\v1\\results.log', 'a') as f:
-                jsonStr = "@ c = "+str(c)+"\n" + json.dumps(evaluation_results, indent=4)
-                # Go to last line
-                f.write(jsonStr)
-        return evaluation_results
-    def save(self, path: str):
-        # Using Pickele to save the model
+            self._save_results(results, c)
+
+        return results
+
+    # plotting
+    def _plot_classification(self, y_true, y_pred, metrics, model, target):
+        fig, ax = plt.subplots(1, 2, figsize=(14, 5))
+        fig.suptitle(f"{model} - {target}")
+
+        cm = confusion_matrix(y_true, y_pred)
+        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax[0])
+        ax[0].set_title("Confusion Matrix")
+
+        ax[1].bar(metrics.keys(), metrics.values())
+        ax[1].set_ylim(0, 1.05)
+        ax[1].set_title("Metrics")
+
+        plt.tight_layout()
+        plt.show()
+
+    def _plot_regression(self, y_true, y_pred, metrics, model, target):
+        fig, ax = plt.subplots(1, 2, figsize=(14, 5))
+        fig.suptitle(f"{model} - {target}")
+
+        ax[0].scatter(y_true, y_pred, alpha=0.6)
+        ax[0].plot([y_true.min(), y_true.max()],
+                   [y_true.min(), y_true.max()], 'r--')
+        ax[0].set_title("Actual vs Predicted")
+
+        ax[1].bar(metrics.keys(), metrics.values())
+        ax[1].set_title("Metrics")
+
+        plt.tight_layout()
+        plt.show()
+
+    # save/infer methods
+    def _save_results(self, results, c):
+        with open(RESULT_LOG_PATH, 'a') as f:
+            f.write(f"@ c = {c}\n")
+            f.write(json.dumps(results, indent=4))
+            f.write("\n\n")
+
+    def save(self, path):
         with open(path, 'wb') as f:
             pkl.dump(self, f)
-    def infer(self, new_data, target: str):
-        features = new_data.drop(columns=[target])
-        bestModel = self.models[target][self.bestModelIndex[target]]
-        prediction = bestModel.predict(features)
-        return prediction
+
+    def infer(self, new_data, target):
+        model = self.models[target][self.best_model_index[target]]
+        return model.predict(new_data)
